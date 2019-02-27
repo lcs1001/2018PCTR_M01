@@ -58,8 +58,21 @@ public class Billiards extends JFrame {
 		setVisible(true);
 	}
 
+	/**
+	 * Inicialización de las bolas.
+	 */
 	private void initBalls() {
-		// TODO init balls
+		
+		// Inicializar el vector de las bolas.
+		balls = new Ball[N_BALL];
+		
+		// Crear de las bolas.
+		for(int i=0; i < N_BALL; i++) {
+			balls[i] = new Ball();
+		}
+		
+		// Establecer las bolas en el tablero.
+		board.setBalls(balls);
 	}
 
 	private class StartListener implements ActionListener {
