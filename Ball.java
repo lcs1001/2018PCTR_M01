@@ -23,9 +23,9 @@ public class Ball {
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(Ball));
 		image = ii.getImage();
 		
-		//TODO Depend of image size
-		IMG_TAM_X = 32;
-		IMG_TAM_Y = 32;
+		// Tamaño de la bola en función del tamaño de la imagen.
+		IMG_TAM_X = image.getWidth(null);
+		IMG_TAM_Y = image.getHeight(null);
 		
 		x = Billiards.Width/4-16;
 		y = Billiards.Height/2-16;
@@ -47,9 +47,7 @@ public class Ball {
 		reflect();
 		
 		// Modelar el invariante "las bolas no pueden salirse fuera del tablero".
-		
 		assert x > Board.LEFTBOARD && x < Board.RIGHTBOARD;
-		
 		assert y > Board.BOTTOMBOARD && y < Board.TOPBOARD;
 		
 	}
