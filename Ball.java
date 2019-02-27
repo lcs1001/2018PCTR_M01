@@ -46,7 +46,11 @@ public class Ball {
 		
 		reflect();
 		
-		//TODO Check postcondition
+		// Modelar el invariante "las bolas no pueden salirse fuera del tablero".
+		
+		assert x > Board.LEFTBOARD && x < Board.RIGHTBOARD;
+		
+		assert y > Board.BOTTOMBOARD && y < Board.TOPBOARD;
 		
 	}
 
