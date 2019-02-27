@@ -47,8 +47,10 @@ public class Ball {
 		reflect();
 		
 		// Modelar el invariante "las bolas no pueden salirse fuera del tablero".
-		assert x > Board.LEFTBOARD && x < Board.RIGHTBOARD;
-		assert y > Board.BOTTOMBOARD && y < Board.TOPBOARD;
+		assert x > Board.LEFTBOARD;
+		assert x < Board.RIGHTBOARD;
+		assert y > Board.BOTTOMBOARD;
+		assert y < Board.TOPBOARD;
 		
 	}
 
