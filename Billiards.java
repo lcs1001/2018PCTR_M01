@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @SuppressWarnings("serial")
 
@@ -29,6 +31,7 @@ public class Billiards extends JFrame {
 	private Ball[] balls;
 
 	protected Thread[] threads;
+	protected ExecutorService executor;
 
 	public Billiards() {
 
@@ -115,6 +118,9 @@ public class Billiards extends JFrame {
 		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			
+			executor = Executors.newFixedThreadPool(N_BALL);
+			
 			if(threads == null) {
 				
 				Ball[] balls = new Ball[N_BALL];
@@ -126,7 +132,7 @@ public class Billiards extends JFrame {
 				threads = new Thread[N_BALL];
 				for(int i=0; i < N_BALL; i++) {
 					threads[i] = createThread(balls[i]);
-					threads[i].start();
+					executor.execute(threads[i]);
 				}
 			}
 		}
