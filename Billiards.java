@@ -101,11 +101,34 @@ public class Billiards extends JFrame {
 		return new Thread(loop);
 	}
 
+	/**
+	 * Clase StartListener para ejecutar el código cuando se pulsa el botón de
+	 * start.
+	 * 
+	 * @author Lisa Cané y Noelia Ubierna
+	 *
+	 */
 	private class StartListener implements ActionListener {
+
+		/**
+		 * Método que se ejecuta cuando se pulsa el botón start.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Code is executed when start button is pushed
-
+			if(threads == null) {
+				
+				Ball[] balls = new Ball[N_BALL];
+				
+				for(int i=0; i < N_BALL; i++) {
+					balls[i] = new Ball();
+				}
+				board.setBalls(balls);
+				threads = new Thread[N_BALL];
+				for(int i=0; i < N_BALL; i++) {
+					threads[i] = createThread(balls[i]);
+					threads[i].start();
+				}
+			}
 		}
 	}
 
