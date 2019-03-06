@@ -132,10 +132,23 @@ public class Billiards extends JFrame {
 		}
 	}
 
+	/**
+	 * Clase StopListener para ejecutar el código cuando se pulsa el botón de stop.
+	 * 
+	 * @author Lisa Cané y Noelia Ubierna
+	 *
+	 */
 	private class StopListener implements ActionListener {
+
+		/**
+		 * Método que se ejecuta cuando se pulsa el botón stop.
+		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Code is executed when stop button is pushed
+			if (threads != null) {
+				executor.shutdownNow();
+				threads = null;
+			}
 
 		}
 	}
