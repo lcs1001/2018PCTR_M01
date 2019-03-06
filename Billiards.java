@@ -27,6 +27,7 @@ public class Billiards extends JFrame {
 
 	private Board board;
 
+	//TODO update with number of group label. See practice statement.
 	private final int N_BALL = 6;
 	private Ball[] balls;
 
@@ -67,6 +68,7 @@ public class Billiards extends JFrame {
 	 * Inicialización de las bolas.
 	 */
 	private void initBalls() {
+		//TODO init balls
 		
 		// Inicializar el vector de las bolas.
 		balls = new Ball[N_BALL];
@@ -118,6 +120,7 @@ public class Billiards extends JFrame {
 		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			//TODO Code is executed when start button is pushed
 			
 			executor = Executors.newFixedThreadPool(N_BALL);
 			
@@ -151,6 +154,7 @@ public class Billiards extends JFrame {
 		 */
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			//TODO Code is executed when stop button is pushed
 			if (threads != null) {
 				executor.shutdownNow();
 				threads = null;

@@ -23,6 +23,7 @@ public class Ball {
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(Ball));
 		image = ii.getImage();
 		
+		//TODO Depend of image size
 		// Tamaño de la bola en función del tamaño de la imagen.
 		IMG_TAM_X = image.getWidth(null);
 		IMG_TAM_Y = image.getHeight(null);
@@ -46,6 +47,7 @@ public class Ball {
 		
 		reflect();
 		
+		//TODO Check postcondition
 		// Modelar el invariante "las bolas no pueden salirse fuera del tablero".
 		assert (x > Board.LEFTBOARD);
 		assert (x < Board.RIGHTBOARD);
